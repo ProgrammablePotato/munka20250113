@@ -63,7 +63,10 @@ export class UploadService {
         (err)=>console.log(err)
       )
     )
+  }
 
+  deleteExpressFile(fileName:any) {
+    return this.http.delete(this.api+"files/",fileName)
   }
 
   }

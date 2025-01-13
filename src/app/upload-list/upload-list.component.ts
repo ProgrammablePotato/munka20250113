@@ -25,12 +25,20 @@ constructor(
 
 getFiles() {
   this.uploadService.getExpressFiles().subscribe(
-    (res)=>this.files = res
+    (res)=>{
+      this.files = res
+      //this.getFiles()
+    }
   )
 }
 
 deleteFile(file:any){
   this.uploadService.deleteFile(file)
+}
+deleteFileExpress(file:any){
+  this.uploadService.deleteExpressFile(file).forEach(
+    ()=>this.getFiles()
+  )
 }
 
 }
